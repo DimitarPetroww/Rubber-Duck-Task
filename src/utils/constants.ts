@@ -1,0 +1,3 @@
+export const OFFICE_LATITUDE = 42.1505961;
+export const OFFICE_LONGTITUDE = 24.7751846;
+export const RADIUS_WITHIN = 100;
