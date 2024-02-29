@@ -23,6 +23,8 @@ function App() {
 
     if (error) return <div>Error loading data...</div>;
 
+    if(!people) return <div>Loading...</div>;
+
     return (
         <div className='container'>
             <Aside />

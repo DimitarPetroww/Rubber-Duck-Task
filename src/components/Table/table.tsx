@@ -4,8 +4,6 @@ import './table.css';
 import TableRow from "./tableRow";
 
 const Table = ({ people }: { people: PersonInterface[] }) => {
-    if(people.length === 0) return <div>Loading...</div>;
-
     return (
         <table className="table">
             <thead>
