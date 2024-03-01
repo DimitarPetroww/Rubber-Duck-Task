@@ -12,14 +12,13 @@ import Table from './components/Table';
 function App() {
     const { data: people, error } = useFetch<PersonInterface[]>('/data.json');
 
-    const sortedPeople = useMemo(() => people?.sort((a: PersonInterface, b: PersonInterface) => a.partner_id - b.partner_id), [people])
-
     const peopleWithinDistance = useMemo(() => {
-        if (sortedPeople && sortedPeople?.length > 0) {
-            return [...sortedPeople.filter((x) => withinRadius(x.latitude, x.longitude, OFFICE_LATITUDE, OFFICE_LONGTITUDE, RADIUS_WITHIN))];
+        people?.sort((a: PersonInterface, b: PersonInterface) => a.partner_id - b.partner_id);
+        if (people && people?.length > 0) {
+            return [...people.filter((x) => withinRadius(x.latitude, x.longitude, OFFICE_LATITUDE, OFFICE_LONGTITUDE, RADIUS_WITHIN))];
         };
         return [];
-    }, [sortedPeople]);
+    }, [people]);
 
     if (error) return <div>Error loading data...</div>;
 
